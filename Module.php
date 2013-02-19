@@ -11,27 +11,19 @@ class Module extends AbstractPlugin
 
     public function __invoke($template)
     {
-        $this->setTemplate($template);
-        return $this;
-    }
-
-    public function setTemplate($template)
-    {
         $this->template = $template;
         return $this;
     }
 
-    public function getTemplate()
-    {
-        return $this->template;
-    }
-
     public function onDispatch(MvcEvent $e)
     {
+        if (!$this->template) {
+            return;
+        }
         $result = $e->getResult();
         $model = $e->getViewModel();
         $subLayout = new ViewModel;
-        $subLayout->setTemplate($this->getTemplate());
+        $subLayout->setTemplate($this->template);
         $subLayout->addChild($result);
         $model->addChild($subLayout);
     }
