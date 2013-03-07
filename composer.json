@@ -1,0 +1,21 @@
+{
+    "name": "evandotpro/edp-sub-layout",
+    "description": "put a layout in your layout",
+    "type": "library",
+    "keywords": [
+        "zf2"
+    ],
+    "homepage": "http://github.com/EvanDotPro/EdpSubLayout",
+    "authors": [
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-0": {
+            "EdpSubLayout": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
